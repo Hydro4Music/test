@@ -1,0 +1,219 @@
+-- made by m8#6562
+-- made by m8#6562
+
+local ScreenGui = Instance.new("ScreenGui")
+local main = Instance.new("Frame")
+local TextLabel = Instance.new("TextLabel")
+local gravgun = Instance.new("TextButton")
+local fegiantr15 = Instance.new("TextButton")
+local fesmallr15 = Instance.new("TextButton")
+local homebrewadmin = Instance.new("TextButton")
+local infyield = Instance.new("TextButton")
+local workatpizaplc = Instance.new("TextButton")
+local feblackhole = Instance.new("TextButton")
+local TextButton = Instance.new("TextButton")
+local TextButton_2 = Instance.new("TextButton")
+local TextButton_3 = Instance.new("TextButton")
+local TextButton_4 = Instance.new("TextButton")
+local TextButton_5 = Instance.new("TextButton")
+local close = Instance.new("TextButton")
+local openclose = Instance.new("Frame")
+local openclose_2 = Instance.new("TextButton")
+
+--Properties:
+
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+main.Name = "main"
+main.Parent = ScreenGui
+main.BackgroundColor3 = Color3.fromRGB(70, 70, 70)
+main.Position = UDim2.new(0.396663219, 0, 0.226993859, 0)
+main.Size = UDim2.new(0, 567, 0, 354)
+main.Visible = false
+main.Active = true
+main.Draggable = true
+
+TextLabel.Parent = main
+TextLabel.BackgroundColor3 = Color3.fromRGB(127, 134, 136)
+TextLabel.Size = UDim2.new(0, 566, 0, 50)
+TextLabel.Font = Enum.Font.JosefinSans
+TextLabel.Text = "Welcome to fe server sided scrtips!"
+TextLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel.TextSize = 30.000
+TextLabel.TextWrapped = true
+
+gravgun.Name = "grav gun"
+gravgun.Parent = main
+gravgun.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+gravgun.Position = UDim2.new(0, 0, 0.176291794, 0)
+gravgun.Size = UDim2.new(0, 175, 0, 50)
+gravgun.Font = Enum.Font.SourceSans
+gravgun.Text = "fe gravity gun "
+gravgun.TextColor3 = Color3.fromRGB(0, 0, 0)
+gravgun.TextSize = 20.000
+gravgun.MouseButton1Down:connect(function()
+	loadstring(game:HttpGet(('https://pastebin.com/raw/8rzYrBBA'),true))()
+end)
+
+fegiantr15.Name = "fe giant (r15)"
+fegiantr15.Parent = main
+fegiantr15.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+fegiantr15.Position = UDim2.new(0.335695475, 0, 0.176291794, 0)
+fegiantr15.Size = UDim2.new(0, 186, 0, 50)
+fegiantr15.Font = Enum.Font.SourceSans
+fegiantr15.Text = "fe giant (r15)"
+fegiantr15.TextColor3 = Color3.fromRGB(0, 0, 0)
+fegiantr15.TextSize = 20.000
+fegiantr15.MouseButton1Down:connect(function()
+	loadstring(game:HttpGet(('https://pastebin.com/raw/3gQj0wN5'),true))()
+end)
+
+fesmallr15.Name = "fe small (r15)"
+fesmallr15.Parent = main
+fesmallr15.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+fesmallr15.Position = UDim2.new(0.700052917, 0, 0.176291779, 0)
+fesmallr15.Size = UDim2.new(0, 170, 0, 50)
+fesmallr15.Font = Enum.Font.SourceSans
+fesmallr15.Text = "fe small (r15)"
+fesmallr15.TextColor3 = Color3.fromRGB(0, 0, 0)
+fesmallr15.TextSize = 20.000
+fesmallr15.MouseButton1Down:connect(function()
+	loadstring(game:HttpGet(('https://pastebin.com/raw/Z5rCHdnL'),true))()
+end)
+
+homebrewadmin.Name = "homebrew admin"
+homebrewadmin.Parent = main
+homebrewadmin.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+homebrewadmin.Position = UDim2.new(0, 0, 0.376899689, 0)
+homebrewadmin.Size = UDim2.new(0, 175, 0, 50)
+homebrewadmin.Font = Enum.Font.SourceSans
+homebrewadmin.Text = "homebrew admin"
+homebrewadmin.TextColor3 = Color3.fromRGB(0, 0, 0)
+homebrewadmin.TextSize = 20.000
+homebrewadmin.MouseButton1Down:connect(function()
+	_G.CustomUI = false
+	loadstring(game:HttpGet(('https://raw.githubusercontent.com/mgamingpro/HomebrewAdmin/master/Main'),true))()
+end)
+
+infyield.Name = "inf yield"
+infyield.Parent = main
+infyield.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+infyield.Position = UDim2.new(0.335695505, 0, 0.376899689, 0)
+infyield.Size = UDim2.new(0, 185, 0, 50)
+infyield.Font = Enum.Font.SourceSans
+infyield.Text = "infinity yield (new)"
+infyield.TextColor3 = Color3.fromRGB(0, 0, 0)
+infyield.TextSize = 20.000
+infyield.MouseButton1Down:connect(function()
+	loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+end)
+
+workatpizaplc.Name = "work at piza plc"
+workatpizaplc.Parent = main
+workatpizaplc.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+workatpizaplc.Position = UDim2.new(0.700052917, 0, 0.376899689, 0)
+workatpizaplc.Size = UDim2.new(0, 170, 0, 50)
+workatpizaplc.Font = Enum.Font.SourceSans
+workatpizaplc.Text = "work at pizza place gui"
+workatpizaplc.TextColor3 = Color3.fromRGB(0, 0, 0)
+workatpizaplc.TextSize = 20.000
+workatpizaplc.MouseButton1Down:connect(function()
+	loadstring(game:HttpGet("https://gist.githubusercontent.com/TurkOyuncu99/b19b733fb8e9e0299381653c50e21e49/raw/a0c7394ba4451c6c548979103aea600d89b70f32/xxxcccc", true))()
+end)
+
+feblackhole.Name = "feblackhole"
+feblackhole.Parent = main
+feblackhole.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+feblackhole.Position = UDim2.new(0, 0, 0.580289483, 0)
+feblackhole.Size = UDim2.new(0, 175, 0, 50)
+feblackhole.Font = Enum.Font.SourceSans
+feblackhole.Text = "fe black hole (click e)"
+feblackhole.TextColor3 = Color3.fromRGB(0, 0, 0)
+feblackhole.TextSize = 20.000
+feblackhole.MouseButton1Down:connect(function()
+	loadstring(game:HttpGet('https://pastebin.com/raw/f1Rx0fag'))()
+end)
+
+TextButton.Parent = main
+TextButton.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+TextButton.Position = UDim2.new(0.336860687, 0, 0.580289483, 0)
+TextButton.Size = UDim2.new(0, 185, 0, 50)
+TextButton.Font = Enum.Font.SourceSans
+TextButton.Text = "coming soon!"
+TextButton.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextButton.TextSize = 20.000
+
+TextButton_2.Parent = main
+TextButton_2.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+TextButton_2.Position = UDim2.new(0.700052917, 0, 0.580289483, 0)
+TextButton_2.Size = UDim2.new(0, 170, 0, 50)
+TextButton_2.Font = Enum.Font.SourceSans
+TextButton_2.Text = "coming soon!"
+TextButton_2.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextButton_2.TextSize = 20.000
+
+TextButton_3.Parent = main
+TextButton_3.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+TextButton_3.Position = UDim2.new(0, 0, 0.778029621, 0)
+TextButton_3.Size = UDim2.new(0, 175, 0, 50)
+TextButton_3.Font = Enum.Font.SourceSans
+TextButton_3.Text = "coming soon!"
+TextButton_3.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextButton_3.TextSize = 20.000
+
+TextButton_4.Parent = main
+TextButton_4.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+TextButton_4.Position = UDim2.new(0.336860657, 0, 0.778029621, 0)
+TextButton_4.Size = UDim2.new(0, 184, 0, 50)
+TextButton_4.Font = Enum.Font.SourceSans
+TextButton_4.Text = "coming soon!"
+TextButton_4.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextButton_4.TextSize = 20.000
+
+TextButton_5.Parent = main
+TextButton_5.BackgroundColor3 = Color3.fromRGB(126, 126, 126)
+TextButton_5.Position = UDim2.new(0.698412716, 0, 0.778029621, 0)
+TextButton_5.Size = UDim2.new(0, 171, 0, 50)
+TextButton_5.Font = Enum.Font.SourceSans
+TextButton_5.Text = "coming soon!"
+TextButton_5.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextButton_5.TextSize = 20.000
+
+close.Name = "close"
+close.Parent = main
+close.BackgroundColor3 = Color3.fromRGB(255, 59, 42)
+close.Position = UDim2.new(0.929453254, 0, 0, 0)
+close.Size = UDim2.new(0, 39, 0, 35)
+close.Font = Enum.Font.SourceSans
+close.Text = "X"
+close.TextColor3 = Color3.fromRGB(0, 0, 0)
+close.TextScaled = true
+close.TextSize = 20.000
+close.TextWrapped = true
+close.MouseButton1Down:connect(function()
+	main.Visible = false
+	openclose.Visible = true
+end)
+
+openclose.Name = "openclose"
+openclose.Parent = ScreenGui
+openclose.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+openclose.Position = UDim2.new(0, 0, 0.499841481, 0)
+openclose.Size = UDim2.new(0, 62, 0, 39)
+openclose.Active = true
+openclose.Draggable = true
+
+openclose_2.Name = "openclose"
+openclose_2.Parent = openclose
+openclose_2.BackgroundColor3 = Color3.fromRGB(100, 100, 100)
+openclose_2.Size = UDim2.new(0, 62, 0, 39)
+openclose_2.Font = Enum.Font.SourceSans
+openclose_2.Text = "Open"
+openclose_2.TextColor3 = Color3.fromRGB(0, 0, 0)
+openclose_2.TextSize = 20.000
+openclose_2.TextWrapped = true
+openclose_2.MouseButton1Down:connect(function()
+	openclose.Visible = false
+	main.Visible = true
+end)
