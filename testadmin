@@ -1773,6 +1773,9 @@ lplayer.Chatted:Connect(function(msg)
 	end
 	if string.sub(msg, 1, 8) == (prefix.."unstate") then
 		changingstate = false
+        end
+        if string.sub(msg, 1, 8) == (prefix.."giant") then
+		loadstring(game:HttpGet('https://raw.githubusercontent.com/Hydro4Music/test/main/giascript'))()
 	end
 end)
 
