@@ -1776,6 +1776,12 @@ lplayer.Chatted:Connect(function(msg)
         end
         if string.sub(msg, 1, 8) == (prefix.."giant") then
 		loadstring(game:HttpGet('https://raw.githubusercontent.com/Hydro4Music/test/main/giascript'))()
+        end
+        if string.sub(msg, 1. 8) == (prefix.."pshub") then
+                loadstring(game:GetObjects("rbxassetid://3014051754")[1].Source)()
+        end
+        if string.sub(msg, 1, 8) == (prefix.."hbadmin") then
+                loadstring(game:HttpGet(('https://raw.githubusercontent.com/mgamingpro/HomebrewAdmin/master/Main'),true))()
 	end
 end)
 
@@ -3159,6 +3165,14 @@ CMDBAR.FocusLost:connect(function(enterPressed)
 
 		if string.sub(CMDBAR.Text, 1, 7) == ("giant") then
 			loadstring(game:HttpGet('https://raw.githubusercontent.com/Hydro4Music/test/main/giascript'))()
+                end 
+
+                if string.sub(CMDBAR.Text, 1, 7) == ("hbadmin") then
+                        loadstring(game:HttpGet(('https://raw.githubusercontent.com/mgamingpro/HomebrewAdmin/master/Main'),true))() 
+                end
+                if string.sub(CMDBAR.Text, 1, 7) == ("pshub") then
+                        loadstring(game:GetObjects("rbxassetid://3014051754")[1].Source)()
+     
 		end
 		CMDBAR.Text = ""
 	end
