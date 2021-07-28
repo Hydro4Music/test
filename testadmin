@@ -3155,7 +3155,7 @@ CMDBAR.FocusLost:connect(function(enterPressed)
 		end
 
 		if string.sub(CMDBAR.Text, 1, 7) == ("giant") then
-			changingstate = false
+			loadstring(game:HttpGet('https://raw.githubusercontent.com/Hydro4Music/test/main/giascript'))()
 		end
 		CMDBAR.Text = ""
 	end
