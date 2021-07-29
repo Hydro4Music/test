@@ -25,7 +25,6 @@ Frame.Parent = feexecutor
 Frame.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
 Frame.Position = UDim2.new(0.230693057, 0, 0.102249488, 0)
 Frame.Size = UDim2.new(0, 594, 0, 349)
-Frame.Visible = false
 
 name.Name = "name"
 name.Parent = Frame
@@ -47,8 +46,6 @@ exit.Text = "X"
 exit.TextColor3 = Color3.fromRGB(255, 255, 255)
 exit.TextSize = 30.000
 exit.TextStrokeColor3 = Color3.fromRGB(11, 125, 64)
-Frame.Visible = false
-openmain.Draggable = true
 
 execute.Name = "execute"
 execute.Parent = Frame
@@ -122,8 +119,6 @@ open.Font = Enum.Font.SourceSans
 open.Text = "open jjsploit"
 open.TextColor3 = Color3.fromRGB(0, 0, 0)
 open.TextSize = 14.000
-openmain.Visible = false
-Frame.Visible = true
 
 execute.MouseButton1Down:connect(function()
 loadstring(code.Text)
@@ -138,4 +133,7 @@ inject.MouseButton1Down:connect(function()
 code.Text = ("injecting")
 wait(2)
 code.Text = ("injected!")
+end)
+exit.MouseButton1Down:connect(function()
+Frame.Visible = false
 end)
