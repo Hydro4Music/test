@@ -1,0 +1,213 @@
+-- made by m8#6562 ;) sub to DeltaHex roblox on youtube
+
+local ScreenGui = Instance.new("ScreenGui")
+local main = Instance.new("Frame")
+local nameofgui = Instance.new("TextLabel")
+local infyield = Instance.new("TextButton")
+local exit = Instance.new("TextButton")
+local revizremake = Instance.new("TextButton")
+local feadmins = Instance.new("TextLabel")
+local hbadmin = Instance.new("TextButton")
+local scripts = Instance.new("TextLabel")
+local feadminplife = Instance.new("TextButton")
+local giantr15 = Instance.new("TextButton")
+local smallr15 = Instance.new("TextButton")
+local gravgun = Instance.new("TextButton")
+local blackhole = Instance.new("TextButton")
+local TextLabel = Instance.new("TextLabel")
+local openmain = Instance.new("Frame")
+local TextButton = Instance.new("TextButton")
+
+--Properties:
+
+ScreenGui.Parent = game.CoreGui
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+main.Name = "main"
+main.Parent = ScreenGui
+main.BackgroundColor3 = Color3.fromRGB(70, 70, 70)
+main.Position = UDim2.new(0.232673287, 0, 0.116564415, 0)
+main.Size = UDim2.new(0, 652, 0, 394)
+main.Visible = false
+main.Draggable = true
+
+nameofgui.Name = "name of gui"
+nameofgui.Parent = main
+nameofgui.BackgroundColor3 = Color3.fromRGB(62, 62, 62)
+nameofgui.Size = UDim2.new(0, 652, 0, 50)
+nameofgui.Font = Enum.Font.Ubuntu
+nameofgui.Text = "FE op script hub by m8#6562"
+nameofgui.TextColor3 = Color3.fromRGB(0, 0, 0)
+nameofgui.TextSize = 21.000
+
+infyield.Name = "infyield"
+infyield.Parent = main
+infyield.BackgroundColor3 = Color3.fromRGB(71, 71, 71)
+infyield.Position = UDim2.new(0.0156784058, 0, 0.220820978, 0)
+infyield.Size = UDim2.new(0, 142, 0, 50)
+infyield.Font = Enum.Font.SourceSans
+infyield.Text = "inf yield"
+infyield.TextColor3 = Color3.fromRGB(0, 0, 0)
+infyield.TextSize = 20.000
+infyield.MouseButton1Down:connect(function()
+	loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+end)
+
+exit.Name = "exit"
+exit.Parent = main
+exit.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+exit.Position = UDim2.new(0.926261842, 0, 0, 0)
+exit.Size = UDim2.new(0, 48, 0, 39)
+exit.Font = Enum.Font.SourceSans
+exit.Text = "X"
+exit.TextColor3 = Color3.fromRGB(0, 0, 0)
+exit.TextSize = 20.000
+exit.MouseButton1Down:connect(function()
+main.Visible = false
+openmain.Visible = true
+end)
+
+revizremake.Name = "revizremake"
+revizremake.Parent = main
+revizremake.BackgroundColor3 = Color3.fromRGB(71, 71, 71)
+revizremake.Position = UDim2.new(0.264669776, 0, 0.220168367, 0)
+revizremake.Size = UDim2.new(0, 145, 0, 50)
+revizremake.Font = Enum.Font.SourceSans
+revizremake.Text = "reviz admin remake"
+revizremake.TextColor3 = Color3.fromRGB(0, 0, 0)
+revizremake.TextSize = 18.000
+revizremake.MouseButton1Down:connect(function()
+	loadstring(game:HttpGet('https://raw.githubusercontent.com/Hydro4Music/test/main/testadmin'))()
+end)
+
+feadmins.Name = "feadmins"
+feadmins.Parent = main
+feadmins.BackgroundColor3 = Color3.fromRGB(70, 70, 70)
+feadmins.BorderColor3 = Color3.fromRGB(70, 70, 70)
+feadmins.Position = UDim2.new(0.392638028, 0, 0.142131969, 0)
+feadmins.Size = UDim2.new(0, 139, 0, 23)
+feadmins.Font = Enum.Font.SourceSans
+feadmins.Text = "fe admins"
+feadmins.TextColor3 = Color3.fromRGB(0, 0, 0)
+feadmins.TextSize = 20.000
+
+hbadmin.Name = "hbadmin"
+hbadmin.Parent = main
+hbadmin.BackgroundColor3 = Color3.fromRGB(71, 71, 71)
+hbadmin.Position = UDim2.new(0.519271016, 0, 0.220168367, 0)
+hbadmin.Size = UDim2.new(0, 141, 0, 50)
+hbadmin.Font = Enum.Font.SourceSans
+hbadmin.Text = "homebrew admin"
+hbadmin.TextColor3 = Color3.fromRGB(0, 0, 0)
+hbadmin.TextSize = 18.000
+hbadmin.MouseButton1Down:connect(function()
+	loadstring(game:HttpGet(('https://raw.githubusercontent.com/mgamingpro/HomebrewAdmin/master/Main'),true))()
+end)
+
+scripts.Name = "scripts"
+scripts.Parent = main
+scripts.BackgroundColor3 = Color3.fromRGB(70, 70, 70)
+scripts.BorderColor3 = Color3.fromRGB(70, 70, 70)
+scripts.Position = UDim2.new(0.421779126, 0, 0.368020296, 0)
+scripts.Size = UDim2.new(0, 101, 0, 18)
+scripts.Font = Enum.Font.SourceSans
+scripts.Text = "scripts"
+scripts.TextColor3 = Color3.fromRGB(0, 0, 0)
+scripts.TextSize = 20.000
+
+feadminplife.Name = "feadminplife"
+feadminplife.Parent = main
+feadminplife.BackgroundColor3 = Color3.fromRGB(71, 71, 71)
+feadminplife.Position = UDim2.new(0.764669776, 0, 0.220168367, 0)
+feadminplife.Size = UDim2.new(0, 141, 0, 50)
+feadminplife.Font = Enum.Font.SourceSans
+feadminplife.Text = "prison life fe admin"
+feadminplife.TextColor3 = Color3.fromRGB(0, 0, 0)
+feadminplife.TextSize = 18.000
+feadminplife.MouseButton1Down:connect(function()
+	loadstring(game:HttpGet('https://pastebin.com/raw/9ab2s523'))()
+end)
+
+giantr15.Name = "giantr15"
+giantr15.Parent = main
+giantr15.BackgroundColor3 = Color3.fromRGB(71, 71, 71)
+giantr15.Position = UDim2.new(0.0156784058, 0, 0.43401897, 0)
+giantr15.Size = UDim2.new(0, 142, 0, 50)
+giantr15.Font = Enum.Font.SourceSans
+giantr15.Text = "fe giant (r15)"
+giantr15.TextColor3 = Color3.fromRGB(0, 0, 0)
+giantr15.TextSize = 20.000
+giantr15.MouseButton1Down:connect(function()
+	loadstring(game:HttpGet('https://raw.githubusercontent.com/Hydro4Music/test/main/giascript'))()
+end)
+
+smallr15.Name = "smallr15"
+smallr15.Parent = main
+smallr15.BackgroundColor3 = Color3.fromRGB(71, 71, 71)
+smallr15.Position = UDim2.new(0.268745899, 0, 0.43401897, 0)
+smallr15.Size = UDim2.new(0, 142, 0, 50)
+smallr15.Font = Enum.Font.SourceSans
+smallr15.Text = "fe small (r15)"
+smallr15.TextColor3 = Color3.fromRGB(0, 0, 0)
+smallr15.TextSize = 20.000
+smallr15.MouseButton1Down:connect(function()
+	loadstring(game:HttpGet('https://raw.githubusercontent.com/Hydro4Music/test/main/smallr15'))()
+end)
+
+gravgun.Name = "gravgun"
+gravgun.Parent = main
+gravgun.BackgroundColor3 = Color3.fromRGB(71, 71, 71)
+gravgun.Position = UDim2.new(0.517212152, 0, 0.43401897, 0)
+gravgun.Size = UDim2.new(0, 142, 0, 50)
+gravgun.Font = Enum.Font.SourceSans
+gravgun.Text = "fe gravity gun unanchored parts only"
+gravgun.TextColor3 = Color3.fromRGB(0, 0, 0)
+gravgun.TextSize = 20.000
+gravgun.TextWrapped = true
+gravgun.MouseButton1Down:connect(function()
+	loadstring(game:HttpGet('https://raw.githubusercontent.com/Hydro4Music/test/main/ggun'))()
+end)
+
+blackhole.Name = "blackhole"
+blackhole.Parent = main
+blackhole.BackgroundColor3 = Color3.fromRGB(71, 71, 71)
+blackhole.Position = UDim2.new(0.762610912, 0, 0.43401897, 0)
+blackhole.Size = UDim2.new(0, 142, 0, 50)
+blackhole.Font = Enum.Font.SourceSans
+blackhole.Text = "fe black hole (click e) only unanchored parts"
+blackhole.TextColor3 = Color3.fromRGB(0, 0, 0)
+blackhole.TextSize = 18.000
+blackhole.TextWrapped = true
+blackhole.MouseButton1Down:connect(function()
+	loadstring(game:HttpGet('https://pastebin.com/raw/f1Rx0fag'))()
+end)
+
+TextLabel.Parent = main
+TextLabel.BackgroundColor3 = Color3.fromRGB(70, 70, 70)
+TextLabel.BorderColor3 = Color3.fromRGB(70, 70, 70)
+TextLabel.Position = UDim2.new(0.0153374234, 0, 0.586294413, 0)
+TextLabel.Size = UDim2.new(0, 629, 0, 150)
+TextLabel.Font = Enum.Font.SourceSans
+TextLabel.Text = "more coming soon!"
+TextLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel.TextSize = 40.000
+
+openmain.Name = "openmain"
+openmain.Parent = ScreenGui
+openmain.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+openmain.Position = UDim2.new(0, 0, 0.535787284, 0)
+openmain.Size = UDim2.new(0, 91, 0, 41)
+openmain.Active = true
+openmain.Draggable = true
+
+TextButton.Parent = openmain
+TextButton.BackgroundColor3 = Color3.fromRGB(70, 70, 70)
+TextButton.Size = UDim2.new(0, 91, 0, 41)
+TextButton.Font = Enum.Font.SourceSans
+TextButton.Text = "open"
+TextButton.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextButton.TextSize = 14.000
+TextButton.MouseButton1Down:connect(function()
+openmain.Visible = false
+main.Visible = true
+end)
