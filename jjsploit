@@ -18,6 +18,9 @@ feexecutor.Name = "fe executor"
 feexecutor.Parent = game.CoreGui
 feexecutor.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
+Frame.Active = true
+Frame.Draggable = true
+
 Frame.Parent = feexecutor
 Frame.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
 Frame.Position = UDim2.new(0.230693057, 0, 0.102249488, 0)
@@ -45,7 +48,7 @@ exit.TextColor3 = Color3.fromRGB(255, 255, 255)
 exit.TextSize = 30.000
 exit.TextStrokeColor3 = Color3.fromRGB(11, 125, 64)
 Frame.Visible = false
-openmain.Draggablie = true
+openmain.Draggable = true
 
 execute.Name = "execute"
 execute.Parent = Frame
