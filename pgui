@@ -101,6 +101,7 @@ hbadmin.Text = "homebrew admin"
 hbadmin.TextColor3 = Color3.fromRGB(0, 0, 0)
 hbadmin.TextSize = 18.000
 hbadmin.MouseButton1Down:connect(function()
+        _G.CustomUI = false
 	loadstring(game:HttpGet(('https://raw.githubusercontent.com/mgamingpro/HomebrewAdmin/master/Main'),true))()
 end)
 
