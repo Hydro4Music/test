@@ -1,0 +1,100 @@
+-- made by m8#6562
+
+local feexecutor = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local name = Instance.new("TextLabel")
+local exit = Instance.new("TextButton")
+local execute = Instance.new("TextButton")
+local inject = Instance.new("TextButton")
+local clear = Instance.new("TextButton")
+local code = Instance.new("TextBox")
+
+--Properties:
+
+feexecutor.Name = "fe executor"
+feexecutor.Parent = game.CoreGui
+feexecutor.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Frame.Parent = feexecutor
+Frame.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
+Frame.Position = UDim2.new(0.230693057, 0, 0.102249488, 0)
+Frame.Size = UDim2.new(0, 594, 0, 349)
+
+name.Name = "name"
+name.Parent = Frame
+name.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+name.Size = UDim2.new(0, 594, 0, 32)
+name.Font = Enum.Font.SourceSans
+name.Text = "JJSPLOIT"
+name.TextColor3 = Color3.fromRGB(0, 0, 0)
+name.TextSize = 20.000
+
+exit.Name = "exit"
+exit.Parent = Frame
+exit.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+exit.BorderColor3 = Color3.fromRGB(50, 50, 50)
+exit.Position = UDim2.new(0.952861965, 0, 0, 0)
+exit.Size = UDim2.new(0, 28, 0, 24)
+exit.Font = Enum.Font.SourceSans
+exit.Text = "X"
+exit.TextColor3 = Color3.fromRGB(255, 255, 255)
+exit.TextSize = 30.000
+exit.TextStrokeColor3 = Color3.fromRGB(11, 125, 64)
+
+execute.Name = "execute"
+execute.Parent = Frame
+execute.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+execute.BorderColor3 = Color3.fromRGB(50, 50, 50)
+execute.Position = UDim2.new(0, 0, 0.914040089, 0)
+execute.Size = UDim2.new(0, 174, 0, 30)
+execute.Font = Enum.Font.SourceSans
+execute.Text = "execute"
+execute.TextColor3 = Color3.fromRGB(0, 0, 0)
+execute.TextSize = 30.000
+
+inject.Name = "inject"
+inject.Parent = Frame
+inject.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+inject.BorderColor3 = Color3.fromRGB(50, 50, 50)
+inject.Position = UDim2.new(0.705387235, 0, 0.914040089, 0)
+inject.Size = UDim2.new(0, 175, 0, 30)
+inject.Font = Enum.Font.SourceSans
+inject.Text = "inject"
+inject.TextColor3 = Color3.fromRGB(0, 0, 0)
+inject.TextSize = 30.000
+
+clear.Name = "clear"
+clear.Parent = Frame
+clear.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+clear.BorderColor3 = Color3.fromRGB(50, 50, 50)
+clear.Position = UDim2.new(0.292929292, 0, 0.914040089, 0)
+clear.Size = UDim2.new(0, 245, 0, 30)
+clear.Font = Enum.Font.SourceSans
+clear.Text = "clear"
+clear.TextColor3 = Color3.fromRGB(0, 0, 0)
+clear.TextSize = 30.000
+
+code.Name = "code"
+code.Parent = Frame
+code.BackgroundColor3 = Color3.fromRGB(70, 70, 70)
+code.Position = UDim2.new(0, 0, 0.0888252184, 0)
+code.Size = UDim2.new(0, 594, 0, 287)
+code.Font = Enum.Font.SourceSans
+code.Text = ""
+code.TextColor3 = Color3.fromRGB(255, 255, 255)
+code.TextSize = 14.000
+code.TextWrapped = true
+code.TextXAlignment = Enum.TextXAlignment.Left
+code.TextYAlignment = Enum.TextYAlignment.Top
+
+execute.MouseButton1Down:connect(function()
+loadstring(Code.Text)
+end)
+clear.MouseButton1Down:connect(function()
+Code.Text = ("")
+end)
+execute.MouseButton1Down:connect(function()
+Code.Text = ("injecting")
+wait(2)
+Code.Text = ("injected")
+end)
