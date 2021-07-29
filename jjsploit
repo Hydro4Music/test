@@ -8,6 +8,9 @@ local execute = Instance.new("TextButton")
 local inject = Instance.new("TextButton")
 local clear = Instance.new("TextButton")
 local code = Instance.new("TextBox")
+local execute2 = Instance.new("TextButton")
+local openmain = Instance.new("Frame")
+local open = Instance.new("TextButton")
 
 --Properties:
 
@@ -19,13 +22,14 @@ Frame.Parent = feexecutor
 Frame.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
 Frame.Position = UDim2.new(0.230693057, 0, 0.102249488, 0)
 Frame.Size = UDim2.new(0, 594, 0, 349)
+Frame.Visible = false
 
 name.Name = "name"
 name.Parent = Frame
 name.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
 name.Size = UDim2.new(0, 594, 0, 32)
 name.Font = Enum.Font.SourceSans
-name.Text = "JJSPLOIT"
+name.Text = "JJSPLOIT "
 name.TextColor3 = Color3.fromRGB(0, 0, 0)
 name.TextSize = 20.000
 
@@ -40,6 +44,8 @@ exit.Text = "X"
 exit.TextColor3 = Color3.fromRGB(255, 255, 255)
 exit.TextSize = 30.000
 exit.TextStrokeColor3 = Color3.fromRGB(11, 125, 64)
+Frame.Visible = false
+openmain.Draggablie = true
 
 execute.Name = "execute"
 execute.Parent = Frame
@@ -87,14 +93,46 @@ code.TextWrapped = true
 code.TextXAlignment = Enum.TextXAlignment.Left
 code.TextYAlignment = Enum.TextYAlignment.Top
 
+execute2.Name = "execute2"
+execute2.Parent = Frame
+execute2.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+execute2.BorderColor3 = Color3.fromRGB(50, 50, 50)
+execute2.Position = UDim2.new(0, 0, -1.58324838e-08, 0)
+execute2.Size = UDim2.new(0, 174, 0, 30)
+execute2.Font = Enum.Font.SourceSans
+execute2.Text = "execute"
+execute2.TextColor3 = Color3.fromRGB(0, 0, 0)
+execute2.TextSize = 30.000
+
+openmain.Name = "openmain"
+openmain.Parent = feexecutor
+openmain.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+openmain.Position = UDim2.new(0, 0, 0.752556145, 0)
+openmain.Size = UDim2.new(0, 80, 0, 40)
+
+open.Name = "open"
+open.Parent = openmain
+open.BackgroundColor3 = Color3.fromRGB(71, 71, 71)
+open.Position = UDim2.new(0, 0, 0.0250007622, 0)
+open.Size = UDim2.new(0, 80, 0, 39)
+open.Font = Enum.Font.SourceSans
+open.Text = "open jjsploit"
+open.TextColor3 = Color3.fromRGB(0, 0, 0)
+open.TextSize = 14.000
+openmain.Visible = false
+Frame.Visible = true
+
 execute.MouseButton1Down:connect(function()
-loadstring(Code.Text)
+loadstring(code.Text)
+end)
+execute2.MouseButton1Down:connect(function()
+loadstring(code.Text)
 end)
 clear.MouseButton1Down:connect(function()
-Code.Text = ("")
+code.Text = ("")
 end)
-execute.MouseButton1Down:connect(function()
-Code.Text = ("injecting")
+inject.MouseButton1Down:connect(function()
+code.Text = ("injecting")
 wait(2)
-Code.Text = ("injected")
+code.Text = ("injected!")
 end)
