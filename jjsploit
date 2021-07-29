@@ -137,3 +137,6 @@ end)
 exit.MouseButton1Down:connect(function()
 Frame.Visible = false
 end)
+open.MouseButton1Down:connect(function()
+Frame.Visible = true
+end)
