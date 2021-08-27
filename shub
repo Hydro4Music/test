@@ -6,6 +6,7 @@ elseif game.PlaceId == 155615604 then
 
 elseif game.PlaceId == 192800 then
     loadstring(game:HttpGet('https://raw.githubusercontent.com/Hydro4Music/test/main/wrkatpplace'))()
+end
 
 game:GetService("StarterGui"):SetCore("SendNotification",{     
 Title = "DeltaHex HUB",     
