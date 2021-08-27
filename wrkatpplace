@@ -117,7 +117,7 @@ local userdata_1 = game:GetService("Players").LocalPlayer.PlayerGui.MainGui.Menu
 local userdata_2 = game:GetService("Players").LocalPlayer.PlayerGui.MainGui.Menu.Emotions.ScrollingFrame.List;
 local userdata_3 = game:GetService("Players").LocalPlayer.PlayerGui.MainGui.Menu.Emotions.ScrollingFrame.List.Template;
 local table_2 = {
-	["Name"] = 'Clap',
+	["Name"] = 'Sleep',
 	["GroupColor"] = 'Bright blue'
 };
 local table_1 = {
