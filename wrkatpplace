@@ -111,8 +111,7 @@ end)
 
 Music:NewButton("play shrek anthem", "shrek anthem", function()
     if focuslost then
-getgenv().audioId = val52xue -- self explanatory
-getgenv().soundVolume = 10 -- up to 10
+local soundVolume = 10 -- up to 10
 local userdata_1 = game:GetService("Players").LocalPlayer.PlayerGui.MainGui.Menu.Emotions;
 local userdata_2 = game:GetService("Players").LocalPlayer.PlayerGui.MainGui.Menu.Emotions.ScrollingFrame.List;
 local userdata_3 = game:GetService("Players").LocalPlayer.PlayerGui.MainGui.Menu.Emotions.ScrollingFrame.List.Template;
