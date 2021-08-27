@@ -109,40 +109,8 @@ wait(0.1)
 player.Character.HumanoidRootPart.CFrame = player.Character.HumanoidRootPart.CFrame+Vector3.new(5,5,6)
 end)
 
-Music:NewButton("play shrek anthaaaem", "shrek anthem", function()
-
-local soundVolume = 10 -- up to 10
-local userdata_1 = game:GetService("Players").LocalPlayer.PlayerGui.MainGui.Menu.Emotions;
-local userdata_2 = game:GetService("Players").LocalPlayer.PlayerGui.MainGui.Menu.Emotions.ScrollingFrame.List;
-local userdata_3 = game:GetService("Players").LocalPlayer.PlayerGui.MainGui.Menu.Emotions.ScrollingFrame.List.Template;
-local table_2 = {
-	["Name"] = 'Sleep',
-	["GroupColor"] = 'Bright blue'
-};
-local table_1 = {
-	["Sleep"] = {
-		["SoundLooped"] = true,
-		["R15"] = 4308418502,
-		["FaceId"] = 66329905,
-		["Object"] = 'Sleep',
-		["Name"] = 'Sleep',
-		["R6"] = 868450390,
-		["SoundId"] = 152828706,
-		["Priority"] = 'Enum.AnimationPriority.Action',
-		["Volume"] = soundVolume,
-		["MovementCancel"] = true
-	}
-};
-local Target = game:GetService("Workspace").Main.LoadSoundsIntoHead;
-for index, sound in pairs(game:service'Players'.LocalPlayer.Character.Head:GetChildren()) do
-if sound:IsA'Sound' then
-sound:Destroy()
-end
-end
-Target:FireServer(table_1)
-wait(.75)
-game:GetService("Players").LocalPlayer.PlayerGui.UIEvents.ListItemPressed:Fire(userdata_1, userdata_2, userdata_3, table_2);
-end
+Music:NewButton("fe music pathed fixing it later!", "", function()
+    print("this option doesnt work")
 end)
 
 Teleports:NewButton("Starting Zone", "", function()
