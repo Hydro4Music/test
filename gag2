@@ -1,0 +1,722 @@
+
+local emptyPromises = {}
+
+repeat
+    wait()
+until game:IsLoaded()
+
+wait(2.5)
+
+-- 𝑐𝑟𝑒𝑑𝑖𝑡𝑠
+
+emptyPromises.credits = {}
+
+emptyPromises.credits.DeltaHex = "𝑜𝑤𝑛𝑒𝑟 & 𝑑𝑒𝑣𝑒𝑙𝑜𝑝𝑒𝑟"
+
+-- 𝑐𝑜𝑛𝑠𝑡𝑎𝑛𝑡𝑠
+
+local Players = game:GetService("Players")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local RunService = game:GetService("RunService")
+local TeleportService = game:GetService("TeleportService")
+local HttpService = game:GetService("HttpService")
+
+local LocalPlayer = Players.LocalPlayer
+
+emptyPromises.titleValue = nil
+
+emptyPromises.rainbowCurrent = 1
+emptyPromises.rainbowMode = 1
+emptyPromises.rainbowSkin = false
+
+emptyPromises.teleportPosition = Vector3.new(0,0,0)
+
+emptyPromises.crashMethod = "Cars"
+
+emptyPromises.blackholePosition = Vector3.new(0,0,0)
+emptyPromises.blackholeDistance = 80
+emptyPromises.blackholeEnabled = false
+
+emptyPromises.emergencyStop = false
+
+-- 𝑎𝑝𝑖
+
+function emptyPromises.getRemote(name)
+    local Remote
+    
+    for k,v in ipairs(ReplicatedStorage.RemoteEvents:GetChildren()) do
+        if string.find(v.Name,name) then
+            Remote = v 
+        end
+    end
+    
+    return Remote
+end
+
+function emptyPromises.Wear(id)
+    emptyPromises.getRemote("UpdateAvatar"):FireServer("wear",id)
+end
+
+function emptyPromises.defaultClothes()
+    -- 𝑛𝑜𝑡𝑒, 𝑡ℎ𝑖𝑠 𝑖𝑠 𝑟𝑎𝑡𝑒𝑙𝑖𝑚𝑖𝑡𝑒𝑑 𝑓𝑜𝑟 𝑠𝑜𝑚𝑒 𝑟𝑒𝑎𝑠𝑜𝑛
+    emptyPromises.getRemote("AvatarOriginalCharacterClient"):FireServer("Whatever1")
+end
+
+function emptyPromises.Rejoin(same)
+    if same then
+        TeleportService:TeleportToPlaceInstance(game.PlaceId,game.JobId,LocalPlayer)
+    else
+        -- https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source
+        
+        local Games = {}
+        local Cursor = ""
+
+        repeat
+            coroutine.wrap(function()
+                local Response = HttpService:JSONDecode(game:HttpGetAsync("https://games.roblox.com/v1/games/" .. game.PlaceId .. "/servers/Public?sortOrder=Asc&limit=100https://games.roblox.com/v1/games/142823291/servers/Public?sortOrder=Asc&limit=100&cursor=".. Cursor))
+                Cursor = Response.nextPageCursor
+                
+                for _,v in ipairs(Response.data) do
+                    if type(v) == "table" and v.maxPlayers > v.playing and v.id ~= game.JobId then
+                        table.insert(Games,v.id)
+                    end
+                end
+            end)()
+            
+            wait(0.35)
+        until #Games > 0
+        
+        if #Games > 0 then
+        	TeleportService:TeleportToPlaceInstance(game.PlaceId,Games[math.random(1,#Games)])
+        end
+        
+        --
+    end
+end
+
+function emptyPromises.setSize(size)
+    ReplicatedStorage.RemoteEvents.Clothes:FireServer("CharacterSizeDown",math.clamp(size,0,1))
+
+    syn.queue_on_teleport([[loadstring(game:HttpGet("https://pastebin.com/raw/U0yqrqvp"))()]])
+
+	emptyPromises.Rejoin(true)
+end
+
+function emptyPromises.updateName(name,nameColor,bio,bioColor)
+    local colorRemote = ReplicatedStorage.RemoteEvents.RPNameEventColor
+    local textRemote = ReplicatedStorage.RemoteEvents.RPNameEvent
+    
+    for i=1,3 do
+        colorRemote:FireServer("PickingRPNameColor",nameColor)
+        colorRemote:FireServer("PickingRPBioColor",bioColor)
+        textRemote:FireServer("RolePlayName",name)
+        textRemote:FireServer("RolePlayBio",bio)
+    end
+end
+
+function emptyPromises.getNext(text)
+    local oldCurrent = emptyPromises.rainbowCurrent
+    local oldMode = emptyPromises.rainbowMode
+    local Current = oldCurrent
+    local Mode = oldMode
+    local Value
+    emptyPromises.rainbowCurrent = Current + 1
+        
+    if Current > #text then
+        emptyPromises.rainbowCurrent = 1
+        emptyPromises.rainbowMode = (Mode + 1) % 2
+    end
+        
+    if oldMode == 1 then
+        Value = text:sub(1,oldCurrent)
+    else
+        Value = text:sub(1 + oldCurrent,#text)
+    end
+        
+    return Value
+end
+
+function emptyPromises.clearBomb()
+    ReplicatedStorage.RemoteEvents.ClearTools:FireServer("PlayerWantsToDeleteTool","Bomb") 
+end
+
+function emptyPromises.newBomb()
+    emptyPromises.getRemote("Tools"):InvokeServer("PickingTools","Bomb")
+end
+
+function emptyPromises.placeBomb(position)
+    local Bomb = 
+        LocalPlayer.Backpack.Bomb or
+        LocalPlayer.Character.Bomb
+        
+    Bomb.Parent = LocalPlayer.Character
+    
+    coroutine.wrap(function()
+        repeat
+            wait()
+        until iswindowactive()
+        
+        Bomb.MouseLoc.OnClientInvoke = function()
+            return position
+        end
+        
+        Bomb.MouseLocCone.OnClientInvoke = function()
+            return workspace
+        end
+        
+        mouse1press()
+        wait(0.1)
+        mouse1release()
+    end)()
+end
+
+function emptyPromises.explodeBomb(name)
+    local Name = name or LocalPlayer.Name
+    
+    ReplicatedStorage.RemoteEvents.BlowBombsServer:FireServer("Bomb".. Name) 
+end
+
+function emptyPromises.spawnCar(car)
+    local Remote = emptyPromises.getRemote("Car")
+    
+    Remote:FireServer("PickingCar",car) 
+end
+
+function emptyPromises.teleportPlayer(name,position)
+    emptyPromises.spawnCar("SchoolBus")
+    
+    wait(1)
+    
+    local targetCharacter = workspace[name]
+    local Character = LocalPlayer.Character
+    local Position = Character.HumanoidRootPart.CFrame
+    local Car = workspace.Vehicles[Character.Name.. "Car"]
+    
+    local function forceSit(who)
+        local Seated = false
+        
+        who.Humanoid.Seated:Connect(function(is)
+            Seated = is
+        end)
+        
+        local startingTick = tick()
+        
+        repeat
+            if who == Character then
+                who.HumanoidRootPart.CFrame = Car.Body.VehicleSeat.CFrame + Vector3.new(0,2,0)
+                wait(0.05)
+            else
+                Car:SetPrimaryPartCFrame(who.HumanoidRootPart.CFrame + Vector3.new(math.random(10),0,math.random(10)))
+                wait(0.05)
+            end
+            
+            if tick() - startingTick > 3 then
+                break
+            end
+        until Seated
+    end
+    
+    forceSit(Character)
+    forceSit(targetCharacter)
+    
+    Car:SetPrimaryPartCFrame(CFrame.new(position))
+    wait(0.5)
+    
+    for i=1,1 do -- 𝑜𝑛𝑙𝑦 1 𝑎𝑡𝑡𝑒𝑚𝑝𝑡 𝑛𝑒𝑒𝑑𝑒𝑑
+        Character.Humanoid.Jump = true
+        
+        wait()
+        
+        Character.HumanoidRootPart.CFrame = Character.HumanoidRootPart.CFrame + Vector3.new(0,100,0)
+        
+        wait()
+    end
+    
+    wait(0.5)
+    
+    for i=1,30 do
+        Character.HumanoidRootPart.CFrame = Position
+    end
+end
+
+function emptyPromises.teleportAll(position,list)
+    emptyPromises.spawnCar("SchoolBus")
+    
+    wait(1)
+    
+    local List = list or Players:GetPlayers()
+    local Character = LocalPlayer.Character
+    local Position = Character.HumanoidRootPart.CFrame
+    local Car = workspace.Vehicles[Character.Name.. "Car"]
+    
+    local function forceSit(who)
+        local Seated = false
+        
+        who.Humanoid.Seated:Connect(function(is)
+            Seated = is
+        end)
+        
+        local startingTick = tick()
+        
+        repeat
+            if who == Character then
+                who.HumanoidRootPart.CFrame = Car.Body.VehicleSeat.CFrame + Vector3.new(0,2,0)
+                wait(0.05)
+            else
+                Car:SetPrimaryPartCFrame(who.HumanoidRootPart.CFrame + Vector3.new(math.random(10),0,math.random(10)))
+                wait(0.05)
+            end
+            
+            if tick() - startingTick > 3 then
+                break
+            end
+        until Seated
+    end
+    
+    forceSit(Character)
+    
+    local Completed = 0
+    
+    for k,v in ipairs(List) do
+        if v.Character ~= Character and Completed < 8 then
+            forceSit(v.Character)
+            
+            Completed = Completed + 1
+        end
+    end
+    
+    Car:SetPrimaryPartCFrame(CFrame.new(position))
+    wait(0.5)
+    
+    for i=1,1 do -- 𝑜𝑛𝑙𝑦 1 𝑎𝑡𝑡𝑒𝑚𝑝𝑡 𝑛𝑒𝑒𝑑𝑒𝑑
+        Character.Humanoid.Jump = true
+        
+        wait()
+        
+        Character.HumanoidRootPart.CFrame = Character.HumanoidRootPart.CFrame + Vector3.new(0,100,0)
+        
+        wait()
+    end
+    
+    wait(0.5)
+    
+    for i=1,30 do
+        Character.HumanoidRootPart.CFrame = Position
+    end
+end
+
+function emptyPromises.teleportList(list,position)
+    emptyPromises.teleportAll(position,list)
+end
+
+function emptyPromises.killPlayer(name)
+    emptyPromises.teleportPlayer(name,Vector3.new(999999,0,999999))
+end
+
+function emptyPromises.killAll()
+    emptyPromises.teleportAll(Vector3.new(999999,0,999999))
+end
+
+function emptyPromises.clearCar()
+    emptyPromises.getRemote("Car"):FireServer("NoMotorVehicleDeleteCar")
+end
+
+function emptyPromises.bringPlayer(name)
+    emptyPromises.teleportPlayer(name,LocalPlayer.Character.HumanoidRootPart.Position)
+    emptyPromises.clearCar()
+end
+
+function emptyPromises.bringAll()
+    emptyPromises.teleportAll(LocalPlayer.Character.HumanoidRootPart.Position)
+    emptyPromises.clearCar()
+end
+
+function emptyPromises.bringList(list)
+    emptyPromises.teleportList(list,LocalPlayer.Character.HumanoidRootPart.Position)
+    emptyPromises.clearCar()
+end
+
+-- 𝑓𝑒𝑎𝑡𝑢𝑟𝑒𝑠
+
+-- 𝑏𝑙𝑎𝑐𝑘ℎ𝑜𝑙𝑒
+coroutine.wrap(function()
+    while wait() do
+        if emptyPromises.blackholeEnabled then
+            pcall(function()
+                while wait() do
+                    for k,v in ipairs(Players:GetPlayers()) do
+                        -- 𝑡𝑟𝑦 𝑡𝑜 𝑎𝑛𝑛𝑜𝑦 𝑎𝑠 𝑚𝑎𝑛𝑦 𝑝𝑒𝑜𝑝𝑙𝑒 𝑎𝑠 𝑝𝑜𝑠𝑠𝑖𝑏𝑙𝑒
+                        if math.random(1,5) == 5 then
+                            local Done = false
+                            
+                            if (v.Character.HumanoidRootPart.Position - emptyPromises.blackholePosition).magnitude > emptyPromises.blackholeDistance then
+                                coroutine.wrap(function()
+                                    pcall(emptyPromises.teleportPlayer,v.Name,emptyPromises.blackholePosition)
+                                    emptyPromises.clearCar()
+                                    
+                                    Done = true
+                                end)()
+                                
+                                repeat
+                                    wait()
+                                until Done
+                            end
+                        end
+                        
+                        if not emptyPromises.blackholeEnabled then
+                            break
+                        end
+                    end
+                    
+                    if not emptyPromises.blackholeEnabled then
+                        break
+                    end
+                end
+            end)
+        end
+    end
+end)()
+
+-- 𝑡𝑖𝑡𝑙𝑒 & 𝑟𝑎𝑖𝑛𝑏𝑜𝑤 𝑠𝑘𝑖𝑛
+coroutine.wrap(function()
+    local rawColors = LocalPlayer.PlayerGui.MainGUIHandler.MainAvatarMenu.Catalog.Container.ScrollingFrameName.NameBox:GetChildren()
+    local lastColor = 1
+    local Colors = {}
+    
+    for k,v in ipairs(rawColors) do
+        if v.Name == "NameColor" then
+            if v.Color.Value ~= "Institutional white" then
+                table.insert(Colors,v.Color) 
+            end
+        end
+    end
+    
+    while wait(0.25) do
+        local Color
+        
+        if (emptyPromises.titleValue and emptyPromises.titleValue ~= "") or emptyPromises.rainbowSkin then
+            repeat
+                Color = Colors[lastColor]
+                    
+                if Color == nil then
+                    lastColor = 0 
+                end
+                    
+                lastColor = lastColor + 1
+            until Color
+        end
+
+        if emptyPromises.titleValue and emptyPromises.titleValue ~= "" then
+            local Next = emptyPromises.getNext(emptyPromises.titleValue)
+            
+            emptyPromises.updateName(Next,Color,Next,Color)
+        end
+        
+        if emptyPromises.rainbowSkin then
+            emptyPromises.getRemote("UpdateAvatar"):FireServer("skintone",Color.Value)
+        end
+    end
+end)()
+
+-- 𝑐𝑟𝑎𝑠ℎ 𝑠𝑒𝑟𝑣𝑒𝑟
+local function crashServer(speed,method,loop)
+    local Terminated = false
+    
+    -- https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source
+    
+    if loop then
+    	local Error = game.CoreGui:FindFirstChild("RobloxPromptGui"):FindFirstChild("promptOverlay")
+    	
+    	Error.DescendantAdded:Connect(function(errorGui)
+    		if errorGui.Name == "ErrorTitle" and not Terminated then
+    			errorGui:GetPropertyChangedSignal("Text"):Connect(function()
+    				if errorGui.Text:sub(0,12) == "Disconnected" then
+    					syn.queue_on_teleport([[loadstring(game:HttpGet("https://pastebin.com/raw/U0yqrqvp"))()]])
+    					
+    					wait(2)
+    					
+    					emptyPromises.Rejoin()
+    				end
+    			end)
+    		end
+    	end)
+	end
+    
+    --
+    
+    coroutine.wrap(function()
+        for i=1,speed do
+            coroutine.wrap(function()
+                RunService.Heartbeat:Connect(function()
+                    if method == "Cars" then
+                        emptyPromises.spawnCar("SchoolBus")
+                    end
+                        
+                    if emptyPromises.emergencyStop then
+                        Terminated = true
+                        emptyPromises.emergencyStop = false
+                            
+                        Loop:Disconnect()
+                        emptyPromises.clearCar()
+                    end
+                end)
+            end)()
+        end
+    end)()
+end
+
+-- 𝑔𝑢𝑖
+
+local Venyx = loadstring(game:HttpGet("https://raw.githubusercontent.com/ToddDev-Roblox/Venyx-UI-Library/main/source.lua"))()
+local Window = Venyx.new("Empty Promises for Brookhaven")
+
+-- 𝑐𝑜𝑠𝑚𝑒𝑡𝑖𝑐𝑠 𝑡𝑎𝑏
+local Cosmetics = Window:addPage("Cosmetics",7193212718)
+
+-- 𝑡𝑖𝑡𝑙𝑒
+local Title = Cosmetics:addSection("Title")
+
+Title:addTextbox("Title","",function(value,focus)
+    if focus then
+        emptyPromises.rainbowCurrent = 0
+        emptyPromises.rainbowMode = 0
+        emptyPromises.titleValue = value
+        
+        if value == "" then
+            emptyPromises.updateName("",nil,"",nil)
+            emptyPromises.titleValue = nil
+        end
+    end
+end)
+
+-- 𝑟𝑎𝑖𝑛𝑏𝑜𝑤 𝑠𝑘𝑖𝑛
+local rainbowSkin = Cosmetics:addSection("Rainbow Skin")
+
+rainbowSkin:addToggle("Rainbow Skin",false,function(value)
+    emptyPromises.rainbowSkin = value
+end)
+
+-- 𝑠𝑐𝑎𝑙𝑒
+local Scale = Cosmetics:addSection("Scale - Ban risk")
+local scaleFactor = 1
+
+Scale:addSlider("Scale - On a scale from 0 to 1",100,0,100,function(value)
+    scaleFactor = value / 100
+end)
+
+Scale:addButton("Set Size - Requires rejoin",function()
+    emptyPromises.setSize(scaleFactor) 
+end)
+
+-- 𝑝𝑙𝑎𝑦𝑒𝑟𝑠 𝑡𝑎𝑏
+local playersTab = Window:addPage("Players",7194280652)
+local bringPlayer
+local bringPlayerButton
+local killPlayer
+local killPlayerButton
+local teleportPlayer
+local teleportPlayerButton
+local playerDropdown
+
+-- 𝑠𝑒𝑙𝑒𝑐𝑡 𝑝𝑙𝑎𝑦𝑒𝑟
+local playerSelector = playersTab:addSection("Player")
+local selectedPlayer = "All"
+
+local function getPlayers()
+    local playerTable = {}
+    
+    for k,v in ipairs(Players:GetPlayers()) do
+        table.insert(playerTable,v.Name) 
+    end
+    
+    table.insert(playerTable,"All")
+    
+    return playerTable
+end
+
+local function onChange(value)
+    bringPlayer:updateButton(bringPlayerButton,"Bring ".. value)
+    killPlayer:updateButton(killPlayerButton,"Kill ".. value)
+    teleportPlayer:updateButton(teleportPlayerButton,"Teleport ".. value)
+    selectedPlayer = value
+end
+
+local function updateDropdown()
+    local playerTable = getPlayers()
+    
+    playerSelector:updateDropdown(playerDropdown,selectedPlayer,playerTable,onChange)
+end
+
+local playerTable = getPlayers()
+
+playerDropdown = playerSelector:addDropdown(playerTable[1],playerTable,onChange)
+
+updateDropdown()
+
+Players.PlayerAdded:Connect(updateDropdown)
+Players.PlayerRemoving:Connect(updateDropdown)
+
+-- 𝑝𝑜𝑠𝑖𝑡𝑖𝑜𝑛 𝑠𝑒𝑙𝑒𝑐𝑡𝑜𝑟
+local Position = playersTab:addSection("Position")
+
+local positionValue = Position:addTextbox("Position","",function()end)
+
+Position:addButton("Set Position",function()
+    local rootPosition = LocalPlayer.Character.HumanoidRootPart.Position
+    emptyPromises.teleportPosition = rootPosition
+    
+    Position:updateTextbox(positionValue,"Position",tostring(rootPosition))
+end)
+
+-- 𝑏𝑟𝑖𝑛𝑔 𝑝𝑙𝑎𝑦𝑒𝑟
+bringPlayer = playersTab:addSection("Bring Player")
+local loopBring = false
+
+bringPlayer:addToggle("Loop",false,function(value)
+    loopBring = value 
+end)
+
+bringPlayerButton = bringPlayer:addButton("Bring ".. selectedPlayer,function()
+    coroutine.wrap(function()
+        repeat
+            if selectedPlayer == "All" then
+                emptyPromises.bringAll()
+            else
+                emptyPromises.bringPlayer(selectedPlayer)
+            end
+        until not loopBring
+    end)()
+end)
+
+-- 𝑘𝑖𝑙𝑙 𝑝𝑙𝑎𝑦𝑒𝑟
+killPlayer = playersTab:addSection("Kill Player")
+local loopKill = false
+
+killPlayer:addToggle("Loop",false,function(value)
+    loopKill = value 
+end)
+
+killPlayerButton = killPlayer:addButton("Kill ".. selectedPlayer,function()
+    coroutine.wrap(function()
+        repeat
+            if selectedPlayer == "All" then
+                emptyPromises.killAll()
+            else
+                emptyPromises.killPlayer(selectedPlayer)
+            end
+        until not loopKill
+    end)()
+end)
+
+-- 𝑡𝑒𝑙𝑒𝑝𝑜𝑟𝑡 𝑝𝑙𝑎𝑦𝑒𝑟
+teleportPlayer = playersTab:addSection("Teleport Player")
+local loopTeleport = false
+
+teleportPlayer:addToggle("Loop",false,function(value)
+    loopTeleport = value 
+end)
+
+teleportPlayerButton = teleportPlayer:addButton("Teleport ".. selectedPlayer,function()
+    coroutine.wrap(function()
+        repeat
+            if selectedPlayer == "All" then
+                emptyPromises.teleportAll(emptyPromises.teleportPosition)
+            else
+                emptyPromises.teleportPlayer(selectedPlayer,emptyPromises.teleportPosition)
+            end
+            
+            emptyPromises.clearCar()
+        until not loopTeleport
+    end)()
+end)
+
+-- 𝑏𝑙𝑎𝑐𝑘ℎ𝑜𝑙𝑒 𝑡𝑎𝑏
+local blackholeTab = Window:addPage("Blackhole",7199724739)
+
+-- 𝑝𝑜𝑠𝑖𝑡𝑖𝑜𝑛 𝑠𝑒𝑙𝑒𝑐𝑡𝑜𝑟
+local Position = blackholeTab:addSection("Position")
+
+local distanceValue = Position:addTextbox("Distance",80,function(value)
+    emptyPromises.blackholeDistance = value
+end)
+
+local positionValue = Position:addTextbox("Position","",function()end)
+
+Position:addButton("Set Position",function()
+    local rootPosition = LocalPlayer.Character.HumanoidRootPart.Position
+    emptyPromises.blackholePosition = rootPosition
+    
+    Position:updateTextbox(positionValue,"Position",tostring(rootPosition))
+end)
+
+-- 𝑏𝑙𝑎𝑐𝑘ℎ𝑜𝑙𝑒
+local Blackhole = blackholeTab:addSection("Blackhole")
+
+Blackhole:addToggle("Blackhole",false,function(value)
+    emptyPromises.blackholeEnabled = value 
+end)
+
+-- 𝑔𝑟𝑖𝑒𝑓𝑖𝑛𝑔 𝑡𝑎𝑏
+local Griefing = Window:addPage("Griefing",7193652418)
+
+-- 𝑐𝑟𝑎𝑠ℎ𝑒𝑟
+local Crasher = Griefing:addSection("Crash Server")
+
+-- 𝑚𝑒𝑡ℎ𝑜𝑑 𝑠𝑒𝑙𝑒𝑐𝑡𝑜𝑟
+local methodSelector = Crasher:addDropdown("Cars - Blatant",{"Cars - Blatant"},function(value)
+    if value == "Cars - Blatant" then
+        emptyPromises.crashMethod = "Cars"
+        
+        return
+    end
+end)
+
+-- 𝑐𝑟𝑎𝑠ℎ 𝑠𝑒𝑟𝑣𝑒𝑟
+local Speed = 1
+local Active = false
+local crashButton
+local loopCrash = true
+
+local function startCrash()
+    if not Active then
+        Active = true
+        crashServer(Speed,emptyPromises.crashMethod,loopCrash)
+        Crasher:updateButton(crashButton,"Stop Crashing")
+    else
+        Active = false 
+        emptyPromises.emergencyStop = true
+        Crasher:updateButton(crashButton,"Crash Server")
+    end 
+end
+
+local speedSlider = Crasher:addSlider("Speed - Default recommended",1,1,10,function(value)
+    Speed = value
+end)
+
+Crasher:addToggle("Loop",true,function(value)
+    loopCrash = value
+end) 
+
+crashButton = Crasher:addButton("Crash Server",startCrash)
+
+if getgenv().loopedCrash then
+    startCrash()
+    
+    getgenv().loopedCrash = false
+end
+
+-- 𝑖𝑛𝑓𝑖𝑛𝑖𝑡𝑒 𝑦𝑖𝑒𝑙𝑑
+local infiniteYield = Window:addPage("Infinite Yield",7219199111)
+local infiniteYieldSection = infiniteYield:addSection("Infinite Yield")
+
+infiniteYieldSection:addButton("Launch",function()
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+end)
+
+-- 𝑐𝑟𝑒𝑑𝑖𝑡𝑠 𝑡𝑎𝑏
+local Credits = Window:addPage("Credits",7194096858)
+
+Credits:addSection("DeltaHex - Owner & Developer")
+
+-- 𝑠ℎ𝑜𝑤 𝑔𝑢𝑖
+Window:SelectPage(Cosmetics,true)
