@@ -1,4 +1,4 @@
-print("made by DeltaHex")
+print("made by DeltaHex ")
 
 game:GetService("StarterGui"):SetCore("SendNotification",{     
 Title = "DeltaHex HUB",     
