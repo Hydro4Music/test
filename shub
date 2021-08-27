@@ -13,4 +13,7 @@ elseif game.PlaceId == 155615604 then
 
 elseif game.PlaceId == 192800 then
     loadstring(game:HttpGet('https://raw.githubusercontent.com/Hydro4Music/test/main/wrkatpplace'))()
+
+elseif game.PlaceId == 1215581239 then
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/Hydro4Music/test/main/dsbrickbattle'))()
 end
