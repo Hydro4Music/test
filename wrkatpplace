@@ -109,8 +109,8 @@ wait(0.1)
 player.Character.HumanoidRootPart.CFrame = player.Character.HumanoidRootPart.CFrame+Vector3.new(5,5,6)
 end)
 
-Music:NewButton("play shrek anthem", "shrek anthem", function()
-    if focuslost then
+Music:NewButton("play shrek anthaaaem", "shrek anthem", function()
+
 local soundVolume = 10 -- up to 10
 local userdata_1 = game:GetService("Players").LocalPlayer.PlayerGui.MainGui.Menu.Emotions;
 local userdata_2 = game:GetService("Players").LocalPlayer.PlayerGui.MainGui.Menu.Emotions.ScrollingFrame.List;
