@@ -1,0 +1,19 @@
+print("made by DeltaHex ")
+
+game:GetService("StarterGui"):SetCore("SendNotification",{     
+Title = "DeltaHex HUB",     
+Text = "tip: works only on supported games!",
+Button1 = "I KNOW",     Duration = 20, })
+
+if game.PlaceId == 4924922222 then
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/Hydro4Music/test/main/gaga'))()
+
+elseif game.PlaceId == 155615604 then
+    loadstring(game:HttpGet('https://pastebin.com/raw/9ab2s523'))()
+
+elseif game.PlaceId == 192800 then
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/Hydro4Music/test/main/wrkatpplace'))()
+
+elseif game.PlaceId == 1215581239 then
+    loadstring(game:HttpGet('https://raw.githubusercontent.com/Hydro4Music/test/main/dsbrickbattle'))()
+end
