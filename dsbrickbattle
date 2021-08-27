@@ -1,0 +1,125 @@
+local ScreenGui = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local UICorner = Instance.new("UICorner")
+local TextLabel = Instance.new("TextLabel")
+local UICorner_2 = Instance.new("UICorner")
+local TextButton = Instance.new("TextButton")
+local UICorner_3 = Instance.new("UICorner")
+local TextButton_2 = Instance.new("TextButton")
+local UICorner_4 = Instance.new("UICorner")
+local TextLabel_2 = Instance.new("TextLabel")
+local TextLabel_3 = Instance.new("TextLabel")
+
+
+ScreenGui.Parent = game.CoreGui
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+ScreenGui.ResetOnSpawn = false
+
+Frame.Parent = ScreenGui
+Frame.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+Frame.Position = UDim2.new(0.361271679, 0, 0.333333343, 0)
+Frame.Size = UDim2.new(0, 406, 0, 209)
+Frame.Active = true
+Frame.Draggable = true
+
+UICorner.Parent = Frame
+
+TextLabel.Parent = Frame
+TextLabel.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
+TextLabel.Size = UDim2.new(0, 406, 0, 41)
+TextLabel.Font = Enum.Font.Highway
+TextLabel.Text = "doomspire brickbattle gui by DeltaHex"
+TextLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel.TextSize = 20.000
+
+UICorner_2.Parent = TextLabel
+
+TextButton.Parent = Frame
+TextButton.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
+TextButton.Position = UDim2.new(0.0172413792, 0, 0.377990425, 0)
+TextButton.Size = UDim2.new(0, 171, 0, 50)
+TextButton.Font = Enum.Font.Highway
+TextButton.Text = "FE kill all"
+TextButton.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextButton.TextSize = 18.000
+TextButton.TextWrapped = true
+TextButton.MouseButton1Down:connect(function()
+	loadstring(game:HttpGet('https://raw.githubusercontent.com/Hydro4Music/test/main/cbringall'))()
+end)
+
+UICorner_3.Parent = TextButton
+
+TextButton_2.Parent = Frame
+TextButton_2.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
+TextButton_2.Position = UDim2.new(0.554187179, 0, 0.377990425, 0)
+TextButton_2.Size = UDim2.new(0, 171, 0, 50)
+TextButton_2.Font = Enum.Font.Highway
+TextButton_2.Text = "big head (r15)"
+TextButton_2.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextButton_2.TextSize = 18.000
+TextButton_2.MouseButton1Down:connect(function()
+	loadstring(game:HttpGet('https://raw.githubusercontent.com/Hydro4Music/test/main/bhead'))()
+end)
+
+UICorner_4.Parent = TextButton_2
+
+TextLabel_2.Parent = Frame
+TextLabel_2.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+TextLabel_2.BorderColor3 = Color3.fromRGB(50, 50, 50)
+TextLabel_2.Position = UDim2.new(0.0172413792, 0, 0.655502379, 0)
+TextLabel_2.Size = UDim2.new(0, 163, 0, 44)
+TextLabel_2.Font = Enum.Font.Highway
+TextLabel_2.Text = "use rocket launcher for better effect and you need rejoin to stop kill all"
+TextLabel_2.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_2.TextSize = 16.000
+TextLabel_2.TextWrapped = true
+TextLabel_2.TextXAlignment = Enum.TextXAlignment.Left
+TextLabel_2.TextYAlignment = Enum.TextYAlignment.Top
+
+TextLabel_3.Parent = Frame
+TextLabel_3.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+TextLabel_3.BorderColor3 = Color3.fromRGB(50, 50, 50)
+TextLabel_3.Position = UDim2.new(0.57389158, 0, 0.655502379, 0)
+TextLabel_3.Size = UDim2.new(0, 163, 0, 44)
+TextLabel_3.Font = Enum.Font.Highway
+TextLabel_3.Text = "you need to use junkbot head for it to work"
+TextLabel_3.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel_3.TextSize = 16.000
+TextLabel_3.TextWrapped = true
+TextLabel_3.TextXAlignment = Enum.TextXAlignment.Left
+TextLabel_3.TextYAlignment = Enum.TextYAlignment.Top
+
+-- Scripts:
+
+local function OBQTM_fake_script() -- TextLabel.Rainbower 
+	local script = Instance.new('LocalScript', TextLabel)
+
+	while wait() do
+		script.Parent.TextColor3 = Color3.new(1,0,0)
+		for i=1,15 do
+			game:GetService("RunService").RenderStepped:wait()
+			script.Parent.TextColor3 = Color3.new(script.Parent.TextColor3.r,script.Parent.TextColor3.g+(17/255),script.Parent.TextColor3.b)
+		end
+		for i=1,15 do
+			game:GetService("RunService").RenderStepped:wait()
+			script.Parent.TextColor3 = Color3.new(script.Parent.TextColor3.r-(17/255),script.Parent.TextColor3.g,script.Parent.TextColor3.b)
+		end
+		for i=1,15 do
+			game:GetService("RunService").RenderStepped:wait()
+			script.Parent.TextColor3 = Color3.new(script.Parent.TextColor3.r,script.Parent.TextColor3.g,script.Parent.TextColor3.b+(17/255))
+		end
+		for i=1,15 do
+			game:GetService("RunService").RenderStepped:wait()
+			script.Parent.TextColor3 = Color3.new(script.Parent.TextColor3.r,script.Parent.TextColor3.g-(17/255),script.Parent.TextColor3.b)
+		end
+		for i=1,15 do
+			game:GetService("RunService").RenderStepped:wait()
+			script.Parent.TextColor3 = Color3.new(script.Parent.TextColor3.r+(17/255),script.Parent.TextColor3.g,script.Parent.TextColor3.b)
+		end
+		for i=1,15 do
+			game:GetService("RunService").RenderStepped:wait()
+			script.Parent.TextColor3 = Color3.new(script.Parent.TextColor3.r,script.Parent.TextColor3.g,script.Parent.TextColor3.b-(17/255))
+		end
+	end
+end
+coroutine.wrap(OBQTM_fake_script)()
