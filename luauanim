@@ -675,4 +675,4 @@ game.Players.LocalPlayer.Character.Humanoid.Jump = true
 end)
 
 wait(1)
-Main:TweenPosition(UDim2.new(0.421999991, -2, 0.28400004, 0))
+Main:TweenPosition(UDim2.new(10, -10, 10, 10))
