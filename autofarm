@@ -1,0 +1,43 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local fakepetsimxautofarm = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local TextButton = Instance.new("TextButton")
+local TextLabel = Instance.new("TextLabel")
+
+--Properties:
+
+fakepetsimxautofarm.Name = "fake pet sim x autofarm"
+fakepetsimxautofarm.Parent = game.CoreGui
+fakepetsimxautofarm.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+fakepetsimxautofarm.ResetOnSpawn = false
+
+Frame.Parent = fakepetsimxautofarm
+Frame.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
+Frame.Position = UDim2.new(0.277456641, 0, 0.265848666, 0)
+Frame.Size = UDim2.new(0, 403, 0, 247)
+Frame.Active = true
+Frame.Draggable = true
+
+TextButton.Parent = Frame
+TextButton.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+TextButton.Position = UDim2.new(0.168734491, 0, 0.240275383, 0)
+TextButton.Size = UDim2.new(0, 266, 0, 179)
+TextButton.Font = Enum.Font.SourceSans
+TextButton.Text = "AUTOFARM"
+TextButton.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextButton.TextSize = 30.000
+TextButton.MouseButton1Down:connect(function()
+	game.Players.LocalPlayer:Kick("lol u got trolled [sry i had to do this XDDDDD]")
+end)
+
+TextLabel.Parent = Frame
+TextLabel.BackgroundColor3 = Color3.fromRGB(60, 60, 60)
+TextLabel.Size = UDim2.new(0, 403, 0, 50)
+TextLabel.Font = Enum.Font.SourceSans
+TextLabel.Text = "PET SIM X AUTOFARM MADE BY DH sus#2733"
+TextLabel.TextColor3 = Color3.fromRGB(0, 0, 0)
+TextLabel.TextSize = 20.000
