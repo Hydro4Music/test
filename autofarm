@@ -31,7 +31,7 @@ TextButton.Text = "AUTOFARM"
 TextButton.TextColor3 = Color3.fromRGB(0, 0, 0)
 TextButton.TextSize = 30.000
 TextButton.MouseButton1Down:connect(function()
-	game.Players.LocalPlayer:Kick("lol u got trolled [sry i had to do this XDDDDD]")
+game.Players.LocalPlayer:Kick("lol u got trolled sry i had to do this XDDDDD")
 end)
 
 TextLabel.Parent = Frame
